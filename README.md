@@ -1,2 +1,2 @@
 # mercurio-links
-Mercurio — мои ссылки
+Mercurio - мои ссылки
