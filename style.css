@@ -117,50 +117,60 @@ a {
     transition: 0.25s ease;
 }
 
-/* Общий эффект при наведении на любую кнопку */
 
+/* Общий эффект при наведении на любую кнопку */
 a:hover {
-    transform: translateY(-4px);
+    transform: translateY(-5px) scale(1.025);
+    filter: brightness(1.15);
 
     box-shadow:
-        0 0 10px rgba(189, 120, 255, 0.4),
+        0 0 14px rgba(189, 120, 255, 0.45),
         0 0 30px rgba(189, 120, 255, 0.25);
+}
+
+/* Эффект нажатия — работает на всех кнопках */
+a:active {
+    transform: translateY(2px) scale(0.94);
+    filter: brightness(0.8);
+
+    box-shadow: 0 0 8px rgba(189, 120, 255, 0.25);
 }
 
 /* YouTube — красное свечение */
 a.youtube:hover {
     border-color: #ff4d67;
     background: linear-gradient(100deg, #7d2035, #321522);
-    box-shadow: 0 0 24px rgba(255, 77, 103, 0.4);
+    box-shadow: 0 0 28px rgba(255, 77, 103, 0.55);
 }
 
 /* DonationAlerts — розовое свечение */
 a.donate:hover {
     border-color: #ff75dc;
     background: linear-gradient(100deg, #76285f, #35172f);
-    box-shadow: 0 0 24px rgba(255, 117, 220, 0.4);
+    box-shadow: 0 0 28px rgba(255, 117, 220, 0.55);
 }
 
 /* Telegram — голубое свечение */
 a.telegram:hover {
     border-color: #42bfff;
     background: linear-gradient(100deg, #155b85, #14283e);
-    box-shadow: 0 0 24px rgba(66, 191, 255, 0.4);
+    box-shadow: 0 0 28px rgba(66, 191, 255, 0.55);
 }
 
 /* ВКонтакте — синее свечение */
 a.vk:hover {
     border-color: #6d9eff;
     background: linear-gradient(100deg, #294f9b, #182344);
-    box-shadow: 0 0 24px rgba(109, 158, 255, 0.4);
+    box-shadow: 0 0 28px rgba(109, 158, 255, 0.55);
 }
 
 /* Discord — сине-фиолетовое свечение */
 a.discord:hover {
     border-color: #9b8aff;
     background: linear-gradient(100deg, #5141a0, #251c48);
-    box-shadow: 0 0 24px rgba(155, 138, 255, 0.4);
+    box-shadow: 0 0 28px rgba(155, 138, 255, 0.55);
 }
+
 
 
 
@@ -236,5 +246,68 @@ a.discord:hover {
     a {
         padding: 16px 12px;
         font-size: 15px;
+    }
+}
+
+
+
+/* === Живые фиолетовые свечения на фоне === */
+body {
+    background-size: 200% 200%;
+    animation: background-move 15s ease-in-out infinite alternate;
+}
+
+@keyframes background-move {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* === Пульсирующее свечение аватара === */
+.avatar {
+    animation: avatar-glow 4s ease-in-out infinite;
+}
+
+@keyframes avatar-glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(150, 70, 255, 0.25));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 22px rgba(150, 70, 255, 0.75));
+    }
+}
+
+/
+/* Кнопки: наведение и нажатие */
+.button {
+    transition:
+        transform 0.18s ease,
+        filter 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.button:hover {
+    transform: translateY(-4px) scale(1.02);
+    filter: brightness(1.2);
+    box-shadow: 0 8px 25px rgba(160, 70, 255, 0.35);
+}
+
+.button:active {
+    transform: translateY(2px) scale(0.96);
+    filter: brightness(0.9);
+    box-shadow: 0 2px 8px rgba(160, 70, 255, 0.2);
+}
+
+
+/* === Уважение к настройке уменьшения анимаций === */
+@media (prefers-reduced-motion: reduce) {
+    body,
+    .avatar {
+        animation: none;
     }
 }
