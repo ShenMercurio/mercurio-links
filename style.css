@@ -1,0 +1,240 @@
+
+/* 1. Основные цвета нашего сайта */
+:root {
+    --bg: #090711;
+    --purple: #bd78ff;
+    --pink: #ff75dc;
+    --text: #faf6ff;
+    --muted: #b9adc9;
+}
+
+/* 2. Настраиваем размеры элементов */
+* {
+    box-sizing: border-box;
+}
+
+/* 3. Оформляем всю страницу */
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 24px 16px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+    color: var(--text);
+
+    
+background:
+    radial-gradient(
+        circle at 15% 20%,
+        rgba(130, 50, 220, 0.22),
+        transparent 32%
+    ),
+    radial-gradient(
+        circle at 85% 75%,
+        rgba(75, 35, 160, 0.2),
+        transparent 35%
+    ),
+    radial-gradient(
+        ellipse at 50% 0%,
+        rgba(180, 90, 255, 0.16),
+        transparent 45%
+    ),
+    linear-gradient(
+        135deg,
+        #090711,
+        #10091c 50%,
+        #080711
+    );
+
+background-attachment: fixed;
+
+}
+
+/* 4. Центральная карточка */
+.card {
+    width: 100%;
+    max-width: 460px;
+    padding: 32px 24px;
+
+    text-align: center;
+
+    animation: card-appear 0.8s ease-out both;
+
+    background: rgba(22, 16, 39, 0.9);
+    
+border: 1px solid rgba(189, 120, 255, 0.65);
+border-radius: 28px;
+
+box-shadow:
+    0 0 12px rgba(189, 120, 255, 0.18),
+    0 0 30px rgba(189, 120, 255, 0.12),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+
+}
+
+/* 5. Главный заголовок */
+h1 {
+    margin: 0;
+    font-size: 40px;
+    letter-spacing: 4px;
+    color: var(--text);
+
+    text-shadow:
+        0 0 10px rgba(189, 120, 255, 0.8),
+        0 0 25px rgba(189, 120, 255, 0.35);
+        animation: logo-glow 3s ease-in-out infinite alternate;
+}
+
+/* 6. Описание под заголовком */
+p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* 7. Кнопка YouTube */
+a {
+    display: block;
+    margin-top: 24px;
+    padding: 17px;
+
+    color: var(--text);
+    font-weight: bold;
+    text-decoration: none;
+
+    background: linear-gradient(
+        100deg,
+        #46236b,
+        #21152f
+    );
+
+    border: 1px solid rgba(189, 120, 255, 0.35);
+    border-radius: 15px;
+
+    transition: 0.25s ease;
+}
+
+/* Общий эффект при наведении на любую кнопку */
+
+a:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 10px rgba(189, 120, 255, 0.4),
+        0 0 30px rgba(189, 120, 255, 0.25);
+}
+
+/* YouTube — красное свечение */
+a.youtube:hover {
+    border-color: #ff4d67;
+    background: linear-gradient(100deg, #7d2035, #321522);
+    box-shadow: 0 0 24px rgba(255, 77, 103, 0.4);
+}
+
+/* DonationAlerts — розовое свечение */
+a.donate:hover {
+    border-color: #ff75dc;
+    background: linear-gradient(100deg, #76285f, #35172f);
+    box-shadow: 0 0 24px rgba(255, 117, 220, 0.4);
+}
+
+/* Telegram — голубое свечение */
+a.telegram:hover {
+    border-color: #42bfff;
+    background: linear-gradient(100deg, #155b85, #14283e);
+    box-shadow: 0 0 24px rgba(66, 191, 255, 0.4);
+}
+
+/* ВКонтакте — синее свечение */
+a.vk:hover {
+    border-color: #6d9eff;
+    background: linear-gradient(100deg, #294f9b, #182344);
+    box-shadow: 0 0 24px rgba(109, 158, 255, 0.4);
+}
+
+/* Discord — сине-фиолетовое свечение */
+a.discord:hover {
+    border-color: #9b8aff;
+    background: linear-gradient(100deg, #5141a0, #251c48);
+    box-shadow: 0 0 24px rgba(155, 138, 255, 0.4);
+}
+
+
+
+/* Анимация появления карточки Mercurio */
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Мягкое пульсирующее свечение логотипа */
+@keyframes logo-glow {
+    from {
+        text-shadow:
+            0 0 8px rgba(189, 120, 255, 0.55),
+            0 0 18px rgba(189, 120, 255, 0.25);
+    }
+
+    to {
+        text-shadow:
+            0 0 14px rgba(189, 120, 255, 0.95),
+            0 0 32px rgba(189, 120, 255, 0.55);
+    }
+}
+
+
+
+
+/* Аватар Mercurio */
+.avatar {
+    display: block;
+
+    width: 220px;
+    height: auto;
+    max-width: 100%;
+
+    margin: 0 auto 20px;
+
+    filter: drop-shadow(0 0 12px rgba(189, 120, 255, 0.55));
+}
+
+
+/* Адаптация сайта для телефонов */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+        align-items: flex-start;
+    }
+
+    .card {
+        padding: 28px 18px;
+        border-radius: 24px;
+    }
+
+    .avatar {
+        width: 190px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
+
+    a {
+        padding: 16px 12px;
+        font-size: 15px;
+    }
+}
